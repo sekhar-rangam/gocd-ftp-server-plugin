@@ -1,0 +1,47 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+project.ext.pluginDesc = [
+        id         : 'FTP-Server',
+        version    : project.version,
+        goCdVersion: '21.1.0',
+        name       : 'FTP Server Plugin',
+        description: 'GoCD Plugin that downloads the source codes/files from FTP Server from a configured directory path when the pipeline triggers',
+        vendorName : 'Sekhar Rangam',
+        vendorUrl  : 'https://github.com/sekhar-rangam'
+]
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'cd.go.plugin:go-plugin-api:17.4.+'
+    compile 'com.google.code.gson:gson:2.8.+'
+    compile 'commons-io:commons-io:2.5'
+    compile 'org.eclipse.jgit:org.eclipse.jgit:4.7.0.201704051617-r'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.+'
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+    implementation group: 'joda-time', name: 'joda-time', version:'2.3'
+    compile 'commons-net:commons-net:3.7'
+    implementation group: 'commons-validator', name: 'commons-validator', version:'1.4.0'
+    
+}
+
+jar {
+    from(configurations.compile) {
+        into "lib/"
+    }
+}
+
+processResources {
+    from("src/main/resource-templates") {
+        filesMatching('plugin.xml') {
+            expand project.pluginDesc
+        }
+    }
+}
