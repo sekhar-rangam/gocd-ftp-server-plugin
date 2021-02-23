@@ -26,8 +26,8 @@ Should work with [GoCD](https://www.gocd.org/) >= 17.4.0.
 ## Installation
 
 **Manually**
-* 1. Download the plugin from [releases](https://github.com/sekhar-rangam/gocd-ftp-server-plugin/releases)
-* 2. Follow the plugin installation instructions [here](https://docs.go.cd/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins)
+* Download the plugin from [releases](https://github.com/sekhar-rangam/gocd-ftp-server-plugin/releases)
+* Follow the plugin installation instructions [here](https://docs.go.cd/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins)
 
 **Dockerized GoCD automatic plugin install**
 * Find [release](https://github.com/sekhar-rangam/gocd-ftp-server-plugin/releases) URL
