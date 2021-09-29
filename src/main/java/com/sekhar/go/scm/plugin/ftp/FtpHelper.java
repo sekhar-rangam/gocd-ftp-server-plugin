@@ -95,7 +95,9 @@ public class FtpHelper {
 			dirToList += "/" + currentDir;
 		}
 
-		FTPFile[] subFiles = ftpClient.listFiles("/home/ftpuser/forecasting" + dirToList);
+		String ftpHomeDir = gitConfig.getHome();
+		String ftpRootDir = gitConfig.getRootDir();
+		FTPFile[] subFiles = ftpClient.listFiles(ftpHomeDir+ftpRootDir+File.separator+ dirToList);
 		if (subFiles != null && subFiles.length > 0) {
 			for (FTPFile aFile : subFiles) {
 				String currentFileName = aFile.getName();
